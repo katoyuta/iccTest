@@ -6,10 +6,10 @@ void testApp::setup(){
     ofSetVerticalSync(true);
     ofSetFrameRate(24);
     
-    webcam_w = 640;
-    webcam_h = 480;
+    webcam_w = 1280;
+    webcam_h = 720;
     
-    webcam.initGrabber(640, 480);
+    webcam.initGrabber(webcam_w, webcam_h);
     
     int w = ofGetWidth();
     int h = ofGetHeight();
@@ -69,7 +69,14 @@ void testApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void testApp::keyReleased(int key){
-
+    
+    switch (key) {
+            
+        case 'f':
+            ofToggleFullscreen();
+            break;
+            
+    }
 }
 
 //--------------------------------------------------------------

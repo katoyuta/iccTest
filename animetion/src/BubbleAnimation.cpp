@@ -7,7 +7,7 @@ BubbleAnimation::BubbleAnimation(){
     frame = 0;
     dead = false;
     
-    float scale = ofGetWidth()/100.f;
+    scale = ofGetWidth()/100.f;
     
     for (int i = 0; i < BUBBLE_NUM; i++) {
         bubblesPos[i].set( ofRandom(-20, 120) * scale, ofRandom(100,300) * scale );
@@ -21,8 +21,8 @@ BubbleAnimation::BubbleAnimation(){
 void BubbleAnimation::update(){
     
     for (int i = 0; i < BUBBLE_NUM; i++) {
-        bubblesSpeed[i].x += ofRandom(-0.5, 0.5);
-        bubblesSpeed[i].y -= ofRandom(1/bubblesSize[i]);
+        bubblesSpeed[i].x += ofRandom(-0.5 * scale, 0.5 * scale);
+        bubblesSpeed[i].y -= ofRandom(scale /bubblesSize[i]);
         bubblesPos[i] += bubblesSpeed[i];
     }
     
